@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classic Cotton T-Shirt</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        header {
+            background-color: #fff;
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #222;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #000;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .product-image {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 500px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .tshirt-placeholder {
+            width: 280px;
+            height: 380px;
+            background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            color: #999;
+            border: 2px solid #ddd;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .tshirt-shape {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 80px;
+        }
+        
+        .product-details {
+            padding: 20px;
+        }
+        
+        h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: #222;
+            font-weight: 500;
+        }
+        
+        .rating {
+            color: #ff9800;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        
+        .price {
+            font-size: 32px;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 20px;
+        }
+        
+        .description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            font-size: 15px;
+        }
+        
+        .features {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .features h3 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #222;
+        }
+        
+        .features ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .features li:last-child {
+            border-bottom: none;
+        }
+        
+        .features li:before {
+            content: "✓ ";
+            color: #4caf50;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .options {
+            margin-bottom: 25px;
+        }
+        
+        .option-group {
+            margin-bottom: 15px;
+        }
+        
+        .option-label {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #222;
+        }
+        
+        .size-options, .color-options {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .size-btn, .color-btn {
+            padding: 8px 16px;
+            border: 2px solid #ddd;
+            background-color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.3s;
+        }
+        
+        .size-btn:hover, .color-btn:hover {
+            border-color: #000;
+        }
+        
+        .size-btn.active, .color-btn.active {
+            border-color: #000;
+            background-color: #000;
+            color: #fff;
+        }
+        
+        .color-circle {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid #ddd;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .color-circle:hover {
+            transform: scale(1.1);
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .btn {
+            flex: 1;
+            padding: 14px 0;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background-color: #000;
+            color: #fff;
+        }
+        
+        .btn-primary:hover {
+            background-color: #222;
+        }
+        
+        .btn-secondary {
+            background-color: #fff;
+            color: #000;
+            border: 2px solid #000;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #f5f5f5;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                margin: 20px auto;
+            }
+            
+            h1 {
+                font-size: 28px;
+            }
+            
+            .price {
+                font-size: 28px;
+            }
+            
+            .nav-links {
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Cotton Co.</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#shop">Shop</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="container">
+            <div class="product-image">
+                <div class="tshirt-placeholder">
+                    <div class="tshirt-shape">👕</div>
+                </div>
+            </div>
+            
+            <div class="product-details">
+                <h1>Classic Cotton T-Shirt</h1>
+                <div class="rating">★★★★★ (128 reviews)</div>
+                <div class="price">$24.99</div>
+                
+                <p class="description">
+                    Experience comfort like never before with our Classic Cotton T-Shirt. Made from premium 100% organic cotton, this versatile piece is perfect for everyday wear. Soft, breathable, and durable – a wardrobe essential that lasts.
+                </p>
+                
+                <div class="features">
+                    <h3>Why You'll Love It</h3>
+                    <ul>
+                        <li>100% Organic Cotton</li>
+                        <li>Soft & Breathable Fabric</li>
+                        <li>Machine Washable</li>
+                        <li>Perfect Fit & Comfort</li>
+                        <li>Eco-Friendly Production</li>
+                    </ul>
+                </div>
+                
+                <div class="options">
+                    <div class="option-group">
+                        <div class="option-label">Size</div>
+                        <div class="size-options">
+                            <button class="size-btn">XS</button>
+                            <button class="size-btn active">S</button>
+                            <button class="size-btn">M</button>
+                            <button class="size-btn">L</button>
+                            <button class="size-btn">XL</button>
+                            <button class="size-btn">XXL</button>
+                        </div>
+                    </div>
+                    
+                    <div class="option-group">
+                        <div class="option-label">Color</div>
+                        <div class="color-options">
+                            <button class="color-btn active" style="background-color: #ffffff; border: 2px solid #000;">White</button>
+                            <button class="color-btn" style="background-color: #000000; color: white;">Black</button>
+                            <button class="color-btn" style="background-color: #4a90e2;">Navy</button>
+                            <button class="color-btn" style="background-color: #ddd;">Gray</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="buttons">
+                    <button class="btn btn-primary">Add to Cart</button>
+                    <button class="btn btn-secondary">♥ Wishlist</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

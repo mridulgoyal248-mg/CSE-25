@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Employee Management</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 30px;
+    background: #f4f7fb;
+    color: #333;
+  }
+  input, button {
+    margin: 6px 4px;
+    padding: 8px 10px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+  }
+  button {
+    background: #4a90e2;
+    color: #fff;
+    cursor: pointer;
+  }
+  button:hover {
+    background: #357acb;
+  }
+  #result {
+    margin-top: 18px;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+</style>
+</head>
+<body>
+
+<h3>Employee Management</h3>
+
+<input type="text" id="name" placeholder="Name">
+<input type="text" id="id" placeholder="ID">
+<input type="number" id="salary" placeholder="Salary">
+<input type="text" id="dept" placeholder="Dept">
+<br>
+
+<button onclick="addEmployee()">Add</button>
+<button onclick="displayEmployees()">Show</button>
+<button onclick="filterSalary()">>50000</button>
+<button onclick="totalSalary()">Total</button>
+<button onclick="averageSalary()">Avg</button>
+<button onclick="countDepartment()">Count</button>
+
+<div id="result"></div>
+
+<script>
+let employees=[];
+
+function addEmployee(){
+let name=document.getElementById("name").value;
+let id=document.getElementById("id").value;
+let salary=parseInt(document.getElementById("salary").value);
+let dept=document.getElementById("dept").value;
+
+employees.push({name:name,id:id,salary:salary,department:dept});
+}
+
+function displayEmployees(){
+let output="";
+for(let emp of employees){
+output+=emp.name+" "+emp.id+" "+emp.salary+" "+emp.department+"<br>";
+}
+document.getElementById("result").innerHTML=output;
+}
+
+function filterSalary(){
+let output="";
+for(let emp of employees){
+if(emp.salary>50000){
+output+=emp.name+" "+emp.salary+"<br>";
+}
+}
+document.getElementById("result").innerHTML=output;
+}
+
+function totalSalary(){
+let total=0;
+for(let emp of employees){
+total+=emp.salary;
+}
+document.getElementById("result").innerHTML="Total "+total;
+}
+
+function averageSalary(){
+let total=0;
+for(let emp of employees){
+total+=emp.salary;
+}
+document.getElementById("result").innerHTML="Avg "+(total/employees.length);
+}
+
+function countDepartment(){
+let dept=prompt("Dept");
+let count=0;
+for(let emp of employees){
+if(emp.department==dept){
+count++;
+}
+}
+document.getElementById("result").innerHTML="Count "+count;
+}
+</script>
+
+</body>
+</html>
